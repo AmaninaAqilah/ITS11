@@ -1,0 +1,7 @@
+{
+  "name": "ITS11",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
