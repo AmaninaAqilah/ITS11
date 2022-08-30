@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>My Cart</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <!-- if nothing in the cart show this -->
+  <div *ngIf="cart.items.length < 1" class="noitem">
+    <!-- <img  src="assets/images/empty-cart.svg" /> -->
+    <h1>Oops!</h1>
+  </div>
+
+  <!-- if added then shows this -->
+  <ion-list *ngIf="cart.items.length > 0">
+    <ion-row *ngFor="let product of cart.items;let i = index;"class="rrow" class="ion-no-padding mt-1 bg-white">
+      
+        <ion-col size="3">
+            <!-- <img src="{{product.imgurl || 'assets/images/products.svg'}}" style="height: 100%;"/> -->
+        </ion-col>
+
+        <ion-col size="9">
+            <h4 class="brand">{{ product?.name }} <span (click)="cart.removeItem(i)" style="float:right; font-size: 1.4rem;"><ion-icon name="close"></ion-icon></span></h4>
+            <h5 class="amount">{{ product?.price | currency: 'BND'}}</h5>
+        </ion-col>
+
+    </ion-row>
+  </ion-list>
+  
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar *ngIf="cart.items.length > 0">
+    <ion-row class="footer-bar">
+      <ion-col class="p-12-15">
+        <div>
+          <h2 class="heading">Order Info</h2>
+          <p class="mt-1">Total Price    : {{ cart?.total_price | currency: 'USD' }}</p>
+        </div>
+        <ion-button mode="ios" color="danger" expand="full" (click)="placeOrder()"> Place Order </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>
