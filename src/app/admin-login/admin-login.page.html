@@ -1,0 +1,17 @@
+<ion-toolbar>
+  <h1>Log into your account</h1>
+</ion-toolbar>
+<ion-content class="ion-padding">
+    <form>
+        <ion-item class="roundedInput">
+          <ion-label position="stacked">Email</ion-label>
+          <ion-input type="email" [(ngModel)]="email" name="email"></ion-input>
+        </ion-item>
+        <ion-item class="roundedInput">
+          <ion-label position="stacked">Password</ion-label>
+          <ion-input type="password" [(ngModel)]="password" name="password"></ion-input>
+        </ion-item>
+        <ion-button expand="block" shape="round" type="submit" (click)="loginAdmin()">LOGIN</ion-button>
+    </form>
+
+</ion-content>

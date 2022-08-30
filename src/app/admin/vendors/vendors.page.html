@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button>
+      <ion-back-button defaultHref="/admin"></ion-back-button> <!-- go back to admin page -->
+    </ion-button>
+    </ion-buttons>
+    <ion-title>Vendors</ion-title>
+  </ion-toolbar>
+  <ion-searchbar (ionInput)="searchVendor($event)"> </ion-searchbar> <!-- searchbar function -->
+</ion-header>
+
+<ion-content>
+
+  <!-- display list of seller -->
+  <div class="eachVendor" *ngFor="let vendor of listOfVendors">
+    <div class="vendorProfile">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="2.5">
+            <div class="vendorProfileImg">
+              <ion-avatar><ion-img [src]=""></ion-img></ion-avatar>
+            </div>
+          </ion-col>
+          <ion-col>
+            <div id="topProfile">
+              <ion-text  class="vendorUsername"><b>{{ vendor.vendorName }}</b></ion-text>
+              <ion-text  class="vendorUsername"><b>{{ vendor.vendorCompany }}</b></ion-text>
+              <ion-text>Status: {{ vendor.status }}</ion-text>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+
+
+
+</ion-content>

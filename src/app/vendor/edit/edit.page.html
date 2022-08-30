@@ -1,0 +1,59 @@
+<ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-button>
+    <ion-back-button defaultHref="/vendor/product"></ion-back-button> <!-- go back to vendor page -->
+  </ion-button>
+  </ion-buttons>
+</ion-toolbar>
+
+
+<ion-content padding>
+
+  <ion-card>
+    <ion-card-content>
+
+      <form action="">
+    
+          <ion-item>
+            <ion-label position="floating">Item name</ion-label>
+            <ion-input required type="text" [(ngModel)]="itemName" name="itemName"></ion-input>
+          </ion-item>
+    
+          <ion-item>
+            <ion-label position="floating">Price</ion-label>
+            <ion-input required type="number" [(ngModel)]="itemAmount" name="itemAmount"></ion-input>
+          </ion-item>
+    
+          <ion-item>
+            <ion-label position="floating">Description</ion-label>
+            <ion-textarea required type="text" [(ngModel)]="itemDescription" name="itemDescription" rows="4" cols="20"></ion-textarea>
+          </ion-item>
+    
+          <ion-item>
+            <ion-label position="floating">Category</ion-label>
+            <ion-input required type="text" [(ngModel)]="itemCat" name="itemCategory"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating">Gender</ion-label>
+            <ion-input required type="text" [(ngModel)]="itemGen" name="itemGender"></ion-input>
+          </ion-item>
+    
+              <br><br>
+            <ion-button id="edit" shape="round" (click)="updateItem()">Update Item</ion-button>
+ 
+    
+    
+    
+        </form>
+
+      
+
+    </ion-card-content>
+  </ion-card>
+
+
+
+
+
+</ion-content>

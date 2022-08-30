@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="vprof"></ion-back-button>
+    </ion-buttons>
+    <ion-title>v-editprof</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+    <form>
+        <ion-item class="roundedInput">
+          <ion-label position="stacked">vendorname</ion-label>
+          <ion-input required type="text" [(ngModel)]="name" name="name"></ion-input>
+        </ion-item>
+        <ion-item class="roundedInput">
+          <ion-label position="stacked">Email</ion-label>
+          <ion-input required type="email" [(ngModel)]="email" name="email"></ion-input>
+        </ion-item>
+        <ion-item class="roundedInput">
+          <ion-label position="stacked">Phone</ion-label>
+          <ion-input required type="tel" [(ngModel)]="phone" name="phone"></ion-input>
+        </ion-item>
+        <ion-item class="roundedInput">
+          <ion-label position="stacked">Status</ion-label>
+          <ion-input required type="text" [(ngModel)]="status" name="status"></ion-input>
+        </ion-item>
+        <ion-button expand="block" shape="round" (click)="updateProfile()">Update</ion-button>
+        <ion-button expand="block" shape="round" (click)="cancel()">Cancel</ion-button>
+      </form>
+</ion-content>

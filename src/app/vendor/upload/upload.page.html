@@ -1,0 +1,42 @@
+<ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-button>
+    <ion-back-button defaultHref="/vendor"></ion-back-button> <!-- go back to vendor page -->
+  </ion-button>
+  </ion-buttons>
+</ion-toolbar>
+
+<ion-content [fullscreen]="true">
+  <!-- welcome -->
+    <ion-text>
+      <h1>Hi, <ion-text>Vendor</ion-text>!</h1>
+    </ion-text>
+
+    <br> 
+
+    <div id="con">
+    <!-- content -->
+     &nbsp; <ion-label text-wrap>I see that you are interested in selling some &nbsp; of your gems. Here is how you can do that:</ion-label>
+
+    <br> <br>
+    
+    &nbsp;  <ion-label text-wrap>Step 1: Make sure you already sign up to our &nbsp; app. </ion-label>
+
+    <br> <br>
+
+    &nbsp; <ion-label text-wrap>Step 2: Take a clear picture of your item.</ion-label>
+
+    <br><br>
+
+    &nbsp;  <ion-label text-wrap>Step 3: Fill in the information needed.
+    </ion-label>
+
+    <br><br>
+
+    &nbsp;  <ion-label text-wrap>Step 4: Done!</ion-label>
+  </div>
+
+  <!-- button to next page -->
+  <ion-button id="next" shape="round" (click)="nextPage()">Continue</ion-button>
+
+</ion-content>

@@ -1,0 +1,28 @@
+<ion-toolbar>
+  <h1>Create your account</h1>
+</ion-toolbar>
+<ion-content class="ion-padding">
+    <form>
+        <ion-item class="roundedInput">
+          <ion-label position="stacked">Username</ion-label>
+          <ion-input required type="text" [(ngModel)]="name" name="name"></ion-input>
+        </ion-item>
+        <ion-item class="roundedInput">
+          <ion-label position="stacked">Email</ion-label>
+          <ion-input required type="email" [(ngModel)]="email" name="email"></ion-input>
+        </ion-item>
+        <ion-item class="roundedInput">
+          <ion-label position="stacked">Phone</ion-label>
+          <ion-input required type="tel" [(ngModel)]="phone" name="phone"></ion-input>
+        </ion-item>
+        <ion-item class="roundedInput">
+          <ion-label position="stacked">Company Name</ion-label>
+          <ion-input required type="cname" [(ngModel)]="cname" name="cname"></ion-input>
+        </ion-item>
+        <ion-item class="roundedInput">
+          <ion-label position="stacked">password</ion-label>
+          <ion-input required type="password" [(ngModel)]="password" name="password"></ion-input>
+        </ion-item>
+        <ion-button type="submit" expand="block" shape="round" (click)="registerVendor()">Register</ion-button>
+    </form>
+</ion-content>

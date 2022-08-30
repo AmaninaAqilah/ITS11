@@ -1,0 +1,54 @@
+<ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-button>
+    <ion-back-button defaultHref="/vendor"></ion-back-button> <!-- go back to vendor page -->
+  </ion-button>
+  </ion-buttons>
+</ion-toolbar>
+
+<ion-content padding>
+
+  <ion-card>
+    <ion-card-content>
+
+  <form [formGroup]="insertItemForm" (submit)="insertItem()">
+
+  <ion-list>
+    <ion-item>
+      <ion-label stacked>Item Name</ion-label>
+      <ion-input formControlName="itemName" type="text"> </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Item Amount</ion-label>
+      <ion-input formControlName="itemAmount" type="text"> </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Item Category</ion-label>
+      <ion-input formControlName="itemCat" type="text"> </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Item Gender</ion-label>
+      <ion-input formControlName="itemGen" type="text"> </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Item Description</ion-label>
+      <ion-textarea formControlName="itemDescription" type="text"> </ion-textarea>
+    </ion-item>
+  </ion-list>
+
+  <ion-button id="add" shape="round" type="submit" [disabled]="!insertItemForm.valid"> Add Item </ion-button>
+
+  </form>
+
+    </ion-card-content>
+  </ion-card>
+
+
+
+
+
+</ion-content>

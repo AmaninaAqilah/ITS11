@@ -1,0 +1,25 @@
+ion-content{
+    --background:#E7E7E7;
+}
+
+//logo
+
+.bgColor{
+    height: 100%; width: 100%;
+    background-color: #E7E7E7;
+}
+#myLogo{
+    display: block;
+    max-width: 300px;
+    margin: auto; padding-top: 210px;
+}
+
+//button
+
+ion-button{
+    --background:black;
+    margin-left: 125px;
+    margin-top: 10px;
+    
+}
+

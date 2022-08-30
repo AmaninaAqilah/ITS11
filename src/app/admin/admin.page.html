@@ -1,0 +1,68 @@
+<br>
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button> 
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- welcome -->
+    <ion-text>
+      <h1>Welcome, Admin!</h1>
+    </ion-text>
+
+    <br>
+
+ <!-- cards -->
+ <ion-card>
+  <ion-item class="ion-activated">
+    <ion-icon name="shirt-outline" slot="start"></ion-icon>
+    <ion-label (click)="toProduct()">Product</ion-label>
+  </ion-item>
+</ion-card>
+
+<ion-card>
+  <ion-item class="ion-activated">
+    <ion-icon name="bag-remove-outline" slot="start"></ion-icon>
+    <ion-label (click)="toOrder()">Orders</ion-label>
+  </ion-item>
+</ion-card>
+
+<ion-card>
+  <ion-item class="ion-activated">
+    <ion-icon name="rocket-outline" slot="start"></ion-icon>
+    <ion-label (click)="toShip()">Shipments</ion-label>
+  </ion-item>
+</ion-card>
+
+  <ion-card>
+    <ion-item class="ion-activated">
+      <ion-icon name="people-outline" slot="start"></ion-icon>
+      <ion-label (click)="toVendor()">Vendors</ion-label>
+    </ion-item>
+  </ion-card>
+
+<ion-card>
+  <ion-item class="ion-activated">
+    <ion-icon name="happy-outline" slot="start"></ion-icon>
+    <ion-label (click)="toReviews()">Reviews</ion-label>
+  </ion-item>
+</ion-card>
+
+<ion-card>
+  <ion-item class="ion-activated">
+    <ion-icon name="chatbox-ellipses-outline" slot="start"></ion-icon>
+    <ion-label (click)="toChat()">Customer Support</ion-label>
+  </ion-item>
+</ion-card>
+
+<ion-card>
+  <ion-item class="ion-activated">
+    <ion-icon name="exit-outline" slot="start"></ion-icon>
+    <ion-label (click)="logOut()">Log Out</ion-label>
+  </ion-item>
+</ion-card>
+
+</ion-content>
