@@ -87,10 +87,16 @@ const routes: Routes = [
     path: 'add-to-cart',
     loadChildren: () => import('./add-to-cart/add-to-cart.module').then( m => m.AddToCartPageModule)
   },
+  
+  {
+    path: 'setting',
+    loadChildren: () => import('./setting/setting.module').then( m => m.SettingPageModule)
+  },
   {
     path: '**',
     loadChildren: () => import('./page-not-found/page-not-found.module').then( m => m.PageNotFoundPageModule)
   },
+
 
   
 ];

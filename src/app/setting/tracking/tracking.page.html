@@ -1,0 +1,84 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/setting"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Delivery Information</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="purchase">
+    <h5>Purchasing Date: 31th July 2022</h5>
+    <h5>Purchasing Time: 7:24pm</h5>
+
+
+  <ion-card>
+    <ion-card-content>
+      <ion-card-title> <h4 class="ion-text-center">Ref No: #N2453</h4></ion-card-title>
+    </ion-card-content>
+  </ion-card>
+
+  
+    <h5>Estimated Delivery: 2nd August 2022</h5>
+ 
+
+ 
+  <h5 >Item Status</h5>
+  <ion-card>
+    <ion-card-content>
+      <ion-card-title> <h3 class="ion-text-center">Item Ordered</h3></ion-card-title>
+    </ion-card-content>
+  </ion-card>
+
+
+
+  <h5>Item Delivery Detail</h5>
+  
+    <ion-row>
+      <ion-col size="5">
+          <img src="../../assets/sports.jpg" class="img-responsive " alt="">
+       </ion-col>
+
+       <ion-col>
+        <p>High Waist Straight Leg Jeans</p>
+        <p>Size: M</p>
+        </ion-col>
+    </ion-row>
+
+      <p>Please use your refference number to leave comment.</p>
+      <p>Note! It is one time use only</p>
+    </div>
+    
+
+
+</ion-content>
+
+<ion-tab-bar slot="bottom">
+  <ion-tab-button tab="cart">
+    <ion-icon name="cart"></ion-icon>
+    <ion-label>My Cart</ion-label>
+  </ion-tab-button>
+
+  <ion-tab-button tab="upload">
+    <ion-icon name="heart" [routerLink]="'/wishlist'"></ion-icon>
+    <ion-label>Wishlist</ion-label>
+  </ion-tab-button>
+
+
+  <ion-tab-button tab="home">
+    <ion-icon name="home" [routerLink]="'/home'"></ion-icon>
+    <ion-label>Home</ion-label>
+  </ion-tab-button>
+
+  <ion-tab-button tab="payment">
+    <ion-icon name="card" [routerLink]="'/payment'"></ion-icon>
+    <ion-label>Payment</ion-label>
+  </ion-tab-button>
+
+ 
+  <ion-tab-button tab="about">
+    <ion-icon name="person-circle" [routerLink]="'/profile'"></ion-icon>
+      <ion-label>Me</ion-label>
+  </ion-tab-button>
+</ion-tab-bar>
