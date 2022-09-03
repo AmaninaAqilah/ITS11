@@ -54,5 +54,10 @@ export class HomePage {
     }
     
   }
+
+  toFilter(){
+    this.router.navigate(['/u-filter']);
+  }
+
      
 }

@@ -92,10 +92,16 @@ const routes: Routes = [
     path: 'setting',
     loadChildren: () => import('./setting/setting.module').then( m => m.SettingPageModule)
   },
+  
+  {
+    path: 'u-filter',
+    loadChildren: () => import('./u-filter/u-filter.module').then( m => m.UFilterPageModule)
+  },
   {
     path: '**',
     loadChildren: () => import('./page-not-found/page-not-found.module').then( m => m.PageNotFoundPageModule)
   },
+
 
 
   

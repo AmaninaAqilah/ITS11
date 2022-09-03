@@ -9,7 +9,9 @@
 
 <ion-content >
 
-  <ion-searchbar  type="text" placeholder="Search" animated="true"></ion-searchbar>
+  <ion-searchbar  type="text" placeholder="Search" animated="true">
+    <ion-icon name="funnel" slot="end" (click)="toFilter()"></ion-icon>
+  </ion-searchbar>
 
   <!-- slideshow -->
   <ion-slides pager="true" [options]="options" *ngIf="bannerImages && bannerImages.length">
