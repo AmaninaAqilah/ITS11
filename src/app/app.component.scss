@@ -1,0 +1,30 @@
+ion-menu ion-content {
+    --background: var(--ion-item-background, var(--ion-background-color, rgb(247, 211, 145)));
+  }
+  
+  ion-toolbar {
+    padding: 0;
+    margin: 0;
+    img {
+      width: 100%;
+    }
+  }
+  
+  
+  ion-menu.md ion-item.selected {
+    // --background: rgba(var(--ion-color-primary-rgb), 0.14)
+    --background: #ffc381;
+  }
+  
+  ion-menu.md ion-item.selected ion-icon {
+    color: var(--ion-color-warning);
+  }
+  
+  ion-menu.md ion-item ion-icon {
+    color: #ffc381;
+  }
+  
+
+  ion-item.selected {
+    --color: var(--ion-color-warning);
+  }
