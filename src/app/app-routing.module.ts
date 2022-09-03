@@ -80,9 +80,18 @@ const routes: Routes = [
     loadChildren: () => import('./v-editprof/v-editprof.module').then( m => m.VEditprofPageModule), canActivate: [VAuthGuard]
   },
   {
+    path: 'cart',
+    loadChildren: () => import('./cart/cart.module').then( m => m.CartPageModule)
+  },
+  {
+    path: 'add-to-cart',
+    loadChildren: () => import('./add-to-cart/add-to-cart.module').then( m => m.AddToCartPageModule)
+  },
+  {
     path: '**',
     loadChildren: () => import('./page-not-found/page-not-found.module').then( m => m.PageNotFoundPageModule)
   },
+
   
 ];
 
