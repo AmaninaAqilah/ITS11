@@ -1,9 +1,13 @@
 import { Component } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
 import { IonRouterOutlet, ModalController } from '@ionic/angular';
 import { AddToCartPage } from '../add-to-cart/add-to-cart.page';
+import { AuthService } from '../services/auth.service';
 import { CartService } from '../services/cart/cart.service';
 import { ProductsService } from '../services/products/products.service';
+import { first } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-home',
@@ -11,6 +15,8 @@ import { ProductsService } from '../services/products/products.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+
+  public prodList: any;
 
   // FOR THE SLIDESHOW
   options = {
@@ -30,6 +36,8 @@ export class HomePage {
               public routerOutlet : IonRouterOutlet,
               public modalCtrl : ModalController,
               public cart : CartService,
+              private auth: AuthService,
+              private afs: AngularFirestore,
               private router: Router) {
                 this.bannerImages = this.productService.bannerImages;
                 this.products = this.productService.products;
@@ -58,6 +66,35 @@ export class HomePage {
   toFilter(){
     this.router.navigate(['/u-filter']);
   }
+  
+  async initializeItems(): Promise<any> {
+    const prodList = await this.afs.collection('items').valueChanges().pipe(first()).toPromise();
+    return prodList;
+  }
 
+  async filterList(evt){
+    this.prodList = await this.initializeItems();
+    const searchTerm = evt.srcElement.value;
+
+    if (!searchTerm) {
+      return;
+    }
+
+    this.prodList = this.prodList.filter(currentProd => {
+      if (currentProd.itemName && searchTerm) {
+        return (currentProd.itemName.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1 || currentProd.itemAmount.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1)
+      }
+    })
+  }
+
+
+  
+  logout(){
+    this.auth.signOut();
+  }
+
+  goToProfile(){
+    this.router.navigate(['/profile']);
+  }
      
 }
