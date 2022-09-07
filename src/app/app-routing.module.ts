@@ -98,9 +98,14 @@ const routes: Routes = [
     loadChildren: () => import('./u-filter/u-filter.module').then( m => m.UFilterPageModule)
   },
   {
+    path: 'v-comment',
+    loadChildren: () => import('./v-comment/v-comment.module').then( m => m.VCommentPageModule)
+  },
+  {
     path: '**',
     loadChildren: () => import('./page-not-found/page-not-found.module').then( m => m.PageNotFoundPageModule)
   },
+
 
 
 
