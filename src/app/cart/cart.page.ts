@@ -17,6 +17,7 @@ export class CartPage implements OnInit {
 
   ionViewWillEnter() {
     this.cart.unseen = 0;
+    this.cart.getCartTotalQty();
     this.cart.totalPrice();
   }
 

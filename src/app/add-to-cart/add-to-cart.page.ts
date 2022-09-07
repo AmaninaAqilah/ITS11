@@ -14,14 +14,12 @@ export class AddToCartPage implements OnInit {
   minOrderQty: any;
   availableQty: any;
 
-  constructor(
-    private modalCtrl: ModalController,
-    public cart: CartService,
-    public utility: UtilityService
-  ) {
-    this.minOrderQty = 1;
-    this.cart.item['cartQuantity'] =  this.minOrderQty;
-    this.availableQty  = this.cart.item['totalStock'] || 0;
+  constructor(private modalCtrl: ModalController,
+              public cart: CartService,
+              public utility: UtilityService) {
+                this.minOrderQty = 1;
+                this.cart.item['cartQuantity'] =  this.minOrderQty;
+                this.availableQty  = this.cart.item['totalStock'] || 0;
   }
 
   ngOnInit() {
@@ -35,9 +33,12 @@ export class AddToCartPage implements OnInit {
     let itemQty = this.getCartItemQty();
     
     let increasedQty = itemQty + 1;
-    if (increasedQty <= this.availableQty) {
+
+    if(increasedQty <= this.availableQty) {
       this.cart.item['cartQuantity'] += 1;
-    } else {
+    }
+    
+    else {
       this.utility.showToast(`This Stock is not available!`, 'top', 'error');
     }
   }
@@ -46,9 +47,11 @@ export class AddToCartPage implements OnInit {
     let itemQty = this.cart.item['cartQuantity'];
 
     let decreasedQty = itemQty - 1;
-    if (decreasedQty >= this.minOrderQty) {
+    if(decreasedQty >= this.minOrderQty) {
       this.cart.item['cartQuantity'] -= 1;
-    } else {
+    }
+    
+    else {
       this.utility.showToast(`Minimum order quantity is ${this.minOrderQty}`, 'top', 'error');
     }
   }

@@ -12,8 +12,7 @@ export class CartService {
   total_cart_qty: number = 0;
   unseen: number = 0;
 
-  constructor(
-    private utility: UtilityService) { }
+  constructor(private utility: UtilityService) { }
 
   placeItem(product) {
     this.item = null;
@@ -33,14 +32,55 @@ export class CartService {
     }
   }
 
+  totalPrice() {
+    this.total_price = 0;
+
+    for(let item of this.items) {
+      this.total_price += this.calculatePrice(item);
+    }
+  }
+
   addToCart() {
-    if (this.item['cartQuantity'] > 0) { 
+    if(this.item['cartQuantity'] > 0) { 
       this.addLocalCartItems();
     }
   }
 
+  increaseCartQty(index) {
+    let increasedQty = this.items[index]['cartQuantity'] + 1;
+    if(increasedQty <= this.items[index]['totalStock']) {
+     
+      this.increaseLocalCartItem( index );
+      this.getCartTotalQty();
+    }
+    
+    else {
+      this.utility.showToast("More Stock is not available!", "top");
+    }
+    
+  }
+  decreaseCartQty(index) {
+    let decreasedQty = this.items[index]['cartQuantity'] - 1;
+    if ( decreasedQty >= 1 ) {
+      this.decreaseLocalCartItem( index );
+      this.getCartTotalQty();
+    } else {
+      this.utility.showToast("Quantity can't be less than Min order Quantity", "top");
+    }
+    
+  }
+
   removeItem(index) {
     this.removeLocalCartItem(index);
+  }
+
+  increaseLocalCartItem(index) {
+    this.items[index]['cartQuantity'] += 1;
+    this.total_price += this.items[index]['price'];
+  }
+  decreaseLocalCartItem(index) {
+    this.items[index]['cartQuantity'] -= 1;
+    this.total_price -= this.items[index]['price'];
   }
 
   removeLocalCartItem(index) {
@@ -59,14 +99,6 @@ export class CartService {
     } else {
       this.items.push(this.item);
     } 
-  }
-
-  totalPrice() {
-    this.total_price = 0;
-
-    for ( let item of this.items ) {
-      this.total_price += this.calculatePrice(item);
-    }
   }
 
   calculatePrice(product) {

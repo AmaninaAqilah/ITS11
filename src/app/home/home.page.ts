@@ -36,7 +36,7 @@ export class HomePage {
   }
 
   async addToCartModal(item) {
-    console.log('item_id :>> ', item); // just to check what item is added
+    // console.log('item_id :>> ', item); // just to check what item is added
     let isAdded = this.cart.isAddedToCart(item.id);
 
     if(!isAdded) {

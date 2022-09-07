@@ -1,14 +1,31 @@
-<div class="main-content">
+<ion-content>
+  <div class="main-content">
 
-  Will turn this page into a pop up instead...
+    <div class="close-box">
+      <ion-icon name="close" (click)="dismiss()"></ion-icon>
+    </div>
 
-  <ion-card style="height: 100%; display: flex; align-items: center; justify-content: center;">
+    <p class="subnote text-align-center">Min order Qty = {{ minOrderQty  }} Pieces</p>
+    <p class="subnote text-align-center">Available Qty = {{ availableQty  }} Pieces</p>
 
-    <h1>Would you like to add to cart?</h1>
+    <div class="counter-wrapper">
+      <div class="counter-label">Quantity</div>     
+      
+      <ion-button class="counter-icon" (click)="decreaseQuantity()">
+        <ion-icon name="remove" slot="icon-only" role="img" aria-label="remove"></ion-icon>
+      </ion-button>
+    
+      <span class="counter-value">{{ cart?.item?.cartQuantity }}</span>
 
-    <ion-button (click)="addToCart()">Yes</ion-button>
-    <ion-button (click)="dismiss()">No</ion-button>
+      <ion-button class="counter-icon" (click)="increaseQuantity()">
+        <ion-icon name="add" slot="icon-only" role="img" aria-label="add"></ion-icon>
+      </ion-button>  
 
-  </ion-card>
- 
-</div>
+      <div class="counter-label">Piece(s)</div>
+      
+    </div>
+  
+    <ion-button expand="full" color="danger" class="text-normal" (click)="addToCart()">Done</ion-button>
+  
+  </div>
+</ion-content>
