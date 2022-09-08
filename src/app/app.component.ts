@@ -14,24 +14,6 @@ export class AppComponent {
     private menu: MenuController,
     private auth: AuthService) {}
 
-    // if(this.usertype = "Admin" ){
-    //   this.menu.enable(true, 'main-menu1'); 
-    //  }else{
-    //   this.menu.enable(true, 'main'); 
-    //  }  
-
-    //when navigate to filter page
-    toFilter(){
-      menuController.toggle();
-      this.router.navigateByUrl('/u-filter');
-    }
-  
-    //when navigate to categories page
-    toCategories(){
-      menuController.toggle();
-      this.router.navigateByUrl('/categories');
-    }
-
   //when navigate to about page
     aboutUs(){
       menuController.toggle();
@@ -42,6 +24,12 @@ export class AppComponent {
    settings(){
     menuController.toggle();
     this.router.navigateByUrl('/setting');
+  }
+
+  // when navigate to chat page
+  chat(){
+    menuController.toggle();
+    this.router.navigateByUrl('/chat');
   }
 
     //when user enter logout from sidebar

@@ -89,11 +89,22 @@ const routes: Routes = [
   },
   {
     path: 'cart',
-    loadChildren: () => import('./cart/cart.module').then( m => m.CartPageModule)
+    loadChildren: () => import('./cart/cart.module').then( m => m.CartPageModule),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'u-checkout',
+    loadChildren: () => import('./u-checkout/u-checkout.module').then( m => m.UCheckoutPageModule),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'landing',
+    loadChildren: () => import('./landing/landing.module').then( m => m.LandingPageModule)
   },
   {
     path: 'add-to-cart',
-    loadChildren: () => import('./add-to-cart/add-to-cart.module').then( m => m.AddToCartPageModule)
+    loadChildren: () => import('./add-to-cart/add-to-cart.module').then( m => m.AddToCartPageModule),
+    canActivate: [AuthGuard]
   },
   
   {
@@ -107,26 +118,25 @@ const routes: Routes = [
   },
   {
     path: 'v-comment',
-    loadChildren: () => import('./v-comment/v-comment.module').then( m => m.VCommentPageModule)
+    loadChildren: () => import('./v-comment/v-comment.module').then( m => m.VCommentPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'checkout',
-    loadChildren: () => import('./checkout/checkout.module').then( m => m.CheckoutPageModule)
+    loadChildren: () => import('./checkout/checkout.module').then( m => m.CheckoutPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'wishlist',
-    loadChildren: () => import('./wishlist/wishlist.module').then( m => m.WishlistPageModule)
+    loadChildren: () => import('./wishlist/wishlist.module').then( m => m.WishlistPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: '**',
     loadChildren: () => import('./page-not-found/page-not-found.module').then( m => m.PageNotFoundPageModule)
   },
-<<<<<<< HEAD
   
   
-=======
-
->>>>>>> a25a4a2d13c1096c93c583da117ba634f8600bc9
 ];
 
 @NgModule({
