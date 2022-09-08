@@ -118,9 +118,15 @@ const routes: Routes = [
     loadChildren: () => import('./wishlist/wishlist.module').then( m => m.WishlistPageModule)
   },
   {
+    path: 'u-checkout',
+    loadChildren: () => import('./u-checkout/u-checkout.module').then( m => m.UCheckoutPageModule)
+  },
+  {
     path: '**',
     loadChildren: () => import('./page-not-found/page-not-found.module').then( m => m.PageNotFoundPageModule)
   },
+  
+
   
   
 ];
