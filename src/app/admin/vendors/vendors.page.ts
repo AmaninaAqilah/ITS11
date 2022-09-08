@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore/'; 
+import { LoadingController, ToastController } from '@ionic/angular';
+import { Vendor } from 'src/app/models/vendor';
+import { VendorService } from 'src/app/services/vendor.service';
 
 @Component({
   selector: 'app-vendors',
@@ -8,13 +11,23 @@ import { AngularFirestore } from '@angular/fire/compat/firestore/';
 })
 export class VendorsPage {
 
+  vendors: Vendor[];
   public listOfVendors: any[];
   public loadedListVendors: any[];
 
 
-  constructor(private firestore: AngularFirestore) { }
+  constructor(private firestore: AngularFirestore,
+    private loadingCtrl: LoadingController,
+    private toastr: ToastController, 
+    private afs: AngularFirestore,
+    private vendorService: VendorService) { }
 
-  ngOnInit() {
+  async ngOnInit() {
+
+    this.vendorService.getVendors().subscribe(vendors => {
+      this.vendors = vendors;
+    });
+
     this.firestore.collection(`vendor`).valueChanges().subscribe(listOfVendors => {
       this.listOfVendors = listOfVendors;
       this.loadedListVendors = listOfVendors;

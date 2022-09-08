@@ -6,49 +6,78 @@
   </ion-buttons>
 </ion-toolbar>
 
-<ion-content padding>
-
+<ion-content>
   <ion-card>
     <ion-card-content>
 
-  <form [formGroup]="insertItemForm" (submit)="insertItem()">
+  <form class="ion-padding" (submit)="addItem()">
 
   <ion-list>
     <ion-item>
+      <ion-label stacked>Item Image</ion-label>
+      <input type="file" name="inputFile" (change)="chooseFile($event)" required>
+    </ion-item>
+    <ion-item>
       <ion-label stacked>Item Name</ion-label>
-      <ion-input formControlName="itemName" type="text"> </ion-input>
+      <ion-input type="text" name="itemName" [(ngModel)]="itemName" required> </ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label stacked>Item Amount</ion-label>
-      <ion-input formControlName="itemAmount" type="text"> </ion-input>
+      <ion-input type="text" name="itemAmount" [(ngModel)]="itemAmount" required> </ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label stacked>Item Category</ion-label>
-      <ion-input formControlName="itemCat" type="text"> </ion-input>
+      <ion-input type="text" name="itemCat" [(ngModel)]="itemCat" required> </ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label stacked>Item Gender</ion-label>
-      <ion-input formControlName="itemGen" type="text"> </ion-input>
+      <ion-input type="text" name="itemGen" [(ngModel)]="itemGen" required> </ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label stacked>Item Description</ion-label>
-      <ion-textarea formControlName="itemDescription" type="text"> </ion-textarea>
+      <ion-textarea type="text" name="itemDescription" [(ngModel)]="itemDescription" required> </ion-textarea>
     </ion-item>
   </ion-list>
 
-  <ion-button id="add" shape="round" type="submit" [disabled]="!insertItemForm.valid"> Add Item </ion-button>
+  <ion-button id="add" shape="round" type="submit" > Add Item </ion-button>
 
   </form>
 
     </ion-card-content>
   </ion-card>
+  <!-- <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Add item</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <form class="ion-padding" (submit)="addItem()">
+        <ion-item>
+          <ion-label position="stacked">Add new</ion-label>
+          <ion-input name="todo" [(ngModel)]="newTodo" placeholder="item"></ion-input>
+        </ion-item>
+        <ion-item>
+          <input type="file" name="inputFile" (change)="chooseFile($event)" required>
+        </ion-item>
 
+        <ion-button type="submit">Add</ion-button>
+      </form>
+    </ion-card-content>
+  </ion-card> -->
 
-
-
-
+<!-- show the item -->
+  <ion-list>
+    <ion-item *ngFor="let item of items |  async">
+      <ion-thumbnail slot="start" *ngIf="item.imageUrl">
+        <img [src]="item.imageUrl">
+      </ion-thumbnail>
+      <ion-label>{{ item.itemName }}</ion-label>
+      <ion-button slot="end" fill="clear" color="danger">
+      </ion-button>
+    </ion-item>
+    <hr>
+  </ion-list>
 </ion-content>

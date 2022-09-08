@@ -13,7 +13,7 @@ export class AdminPage implements OnInit {
       //when navigate to chat page
       toChat(){
 
-        this.router.navigateByUrl('/admin/chat');
+        this.router.navigateByUrl('/admin/live-chat');
       }
     
       //when navigate to product page

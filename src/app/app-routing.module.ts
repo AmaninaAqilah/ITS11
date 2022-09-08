@@ -8,7 +8,6 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),
-    canActivate: [AuthGuard]
   },
   {
     path: 'vendor',
@@ -64,6 +63,15 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
+    path: 'chat',
+    loadChildren: () => import('./chat/chat.module').then( m => m.ChatPageModule),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'guest',
+    loadChildren: () => import('./guest/guest.module').then( m => m.GuestPageModule)
+  },
+  {
     path: 'vreg',
     loadChildren: () => import('./v-register/v-register.module').then( m => m.VRegisterPageModule)
   },
@@ -83,6 +91,7 @@ const routes: Routes = [
     path: '**',
     loadChildren: () => import('./page-not-found/page-not-found.module').then( m => m.PageNotFoundPageModule)
   },
+  
   
 ];
 

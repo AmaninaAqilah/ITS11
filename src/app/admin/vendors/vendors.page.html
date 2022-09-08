@@ -24,11 +24,12 @@
           </ion-col>
           <ion-col>
             <div id="topProfile">
-              <ion-text  class="vendorUsername"><b>{{ vendor.vendorName }}</b></ion-text>
-              <ion-text  class="vendorUsername"><b>{{ vendor.vendorCompany }}</b></ion-text>
-              <ion-text>Status: {{ vendor.status }}</ion-text>
+              <ion-text  class="vendorUsername">{{ vendor.vendorName }}</ion-text>
+              <ion-text  class="vendorUsername">{{ vendor.vendorCompany }}</ion-text>
+              <ion-text>Status: <b>{{ vendor.status }}</b></ion-text>
             </div>
           </ion-col>
+          <ion-icon name="trash-outline" (click)="delete(vendor.vendorId)"></ion-icon>
         </ion-row>
       </ion-grid>
     </div>

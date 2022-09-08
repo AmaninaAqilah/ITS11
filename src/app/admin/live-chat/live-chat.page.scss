@@ -1,0 +1,42 @@
+ion-toolbar{
+    --background:#D37A63;
+}
+
+ion-content{
+    --background:#E7E7E7;
+}
+
+//chats
+
+.message-input {
+    width: 100%;
+    border: 1px solid var(--ion-color-medium);
+    border-radius: 6px;
+    background: #fff;
+    resize: none;
+    margin-top: 0px;
+    --padding-start: 8px;
+}
+
+.message {
+    padding: 10px !important;
+    border-radius: 10px !important;
+    margin-bottom: 4px !important;
+    white-space: pre-wrap;
+}
+
+.my-message {
+    background: #A4A2A2;
+    color: black;
+}
+
+.other-message {
+    background: #A4A2A2;
+    color: black;
+}
+
+.time {
+    color: black;
+    float: right;
+    font-size: small;
+}
