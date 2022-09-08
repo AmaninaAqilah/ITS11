@@ -121,12 +121,8 @@ const routes: Routes = [
     path: '**',
     loadChildren: () => import('./page-not-found/page-not-found.module').then( m => m.PageNotFoundPageModule)
   },
-<<<<<<< HEAD
   
   
-=======
-
->>>>>>> a25a4a2d13c1096c93c583da117ba634f8600bc9
 ];
 
 @NgModule({
