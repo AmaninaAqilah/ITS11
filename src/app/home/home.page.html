@@ -9,25 +9,9 @@
 
 <ion-content >
 
-  <ion-searchbar (ionInput)="filterList($event)">
+  <ion-searchbar  type="text" placeholder="Search" animated="true">
     <ion-icon name="funnel" slot="end" (click)="toFilter()"></ion-icon>
   </ion-searchbar>
-
-  <ion-list lines="none">
-    <ion-item *ngFor="let prodItem of prodList">
-      <ion-label class="ion-text-wrap">
-        <ion-text color="primary">
-          <h3>{{ prodItem.itemName }}</h3>
-        </ion-text>
-        <p>{{ prodItem.itemAmount }}</p><br>
-        <p>{{  prodItem.itemDescription }}</p>
-      </ion-label>
-    </ion-item>
-  </ion-list>
-
-  <!-- <ion-searchbar  type="text" placeholder="Search" animated="true">
-    <ion-icon name="funnel" slot="end" (click)="toFilter()"></ion-icon>
-  </ion-searchbar> -->
 
   <!-- slideshow -->
   <ion-slides pager="true" [options]="options" *ngIf="bannerImages && bannerImages.length">
@@ -53,22 +37,22 @@
 
         <ion-card class="ion-no-margin">
           
-          <img [src]="product?.imgurl || 'https://thumbs.dreamstime.com/b/lost-icon-missing-230247596.jpg'">
+          <img [src]="product.imgurl || 'https://thumbs.dreamstime.com/b/lost-icon-missing-230247596.jpg'">
           
           <ion-card-header>
-            <ion-card-subtitle>{{ product?.category }}</ion-card-subtitle>
-            <ion-card-title class="font-size-1">{{ product?.name }}</ion-card-title>
+            <ion-card-subtitle>{{ product.itemCat }}</ion-card-subtitle>
+            <ion-card-title class="font-size-1">{{ product.itemName }}</ion-card-title>
           </ion-card-header>
 
           <ion-card-content>
 
             <div>
-              {{ product?.price | currency: 'BND' }}
+              {{ product.itemAmount | currency: 'BND' }}
             </div>
 
             <div>
               <ion-button expand="full" color="danger" size="small" (click)="addToCartModal(product)">
-                {{ cart.isAddedToCart(product?.id) ? 'Added' : 'Add to cart' }}
+                {{ cart.isAddedToCart(product.id) ? 'Added' : 'Add to cart' }}
               </ion-button>
             </div>
             
@@ -91,7 +75,7 @@
   </ion-tab-button>
 
   <ion-tab-button tab="upload">
-    <ion-icon name="heart"></ion-icon>
+    <ion-icon name="heart" [routerLink]="'/wishlist'"></ion-icon>
     <ion-label>Wishlist</ion-label>
   </ion-tab-button>
 
@@ -101,10 +85,11 @@
     <ion-label>Home</ion-label>
   </ion-tab-button>
 
-  <ion-tab-button tab="category">
-    <ion-icon name="grid" [routerLink]="'/categories'"></ion-icon>
-    <ion-label>Category</ion-label>
+  <ion-tab-button tab="payment">
+    <ion-icon name="card" [routerLink]="'/payment'"></ion-icon>
+    <ion-label>Payment</ion-label>
   </ion-tab-button>
+
   
   <ion-tab-button tab="about">
     <ion-icon name="person-circle" [routerLink]="'/profile'"></ion-icon>

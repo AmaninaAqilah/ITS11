@@ -22,7 +22,7 @@ export class CartPage implements OnInit {
   }
 
   placeOrder() {
-    this.router.navigate(['']); // redirect to payment tab
+    this.router.navigate(['/checkout']); // redirect to payment tab
   }
 
 }

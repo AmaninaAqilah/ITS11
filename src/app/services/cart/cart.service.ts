@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { UtilityService } from '../utility/utility.service';
 
 @Injectable({
@@ -6,13 +7,14 @@ import { UtilityService } from '../utility/utility.service';
 })
 export class CartService {
 
-  items: any = [];
+  items: any = []; // takes one item off the array
   item: any;
   total_price: number = 0;
   total_cart_qty: number = 0;
   unseen: number = 0;
 
-  constructor(private utility: UtilityService) { }
+  constructor(private utility: UtilityService,
+              private afs: AngularFirestore) { }
 
   placeItem(product) {
     this.item = null;
@@ -24,7 +26,7 @@ export class CartService {
   }
 
   getCartTotalQty() {
-    console.log(this.items);
+    // console.log(this.items);
     this.total_cart_qty = 0;
 
     for (let item of this.items) {
@@ -90,11 +92,11 @@ export class CartService {
 
   addLocalCartItems() {
     this.unseen += 1;
-    console.log('add to cart>:', this.items, this.item);
+    // console.log('add to cart>:', this.items, this.item);
     let index = this.items.length > 0 ? this.items.findIndex(value => value.id === this.item.id) : -1;
    
     if ( index > -1 ) {
-      console.log(this.items[index]['cartQuantity'], this.item['cartQuantity']);
+      // console.log(this.items[index]['cartQuantity'], this.item['cartQuantity']);
       this.items[index]['cartQuantity'] += this.item['cartQuantity'];
     } else {
       this.items.push(this.item);

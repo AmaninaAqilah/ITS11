@@ -5,4 +5,5 @@ export interface Product {
     itemDescription: string;
     itemCat: string;
     itemGen: string;
+    itemQuantity: number;
 }

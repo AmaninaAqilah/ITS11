@@ -5,10 +5,8 @@ import { IonRouterOutlet, ModalController } from '@ionic/angular';
 import { AddToCartPage } from '../add-to-cart/add-to-cart.page';
 import { AuthService } from '../services/auth.service';
 import { CartService } from '../services/cart/cart.service';
-import { ProductsService } from '../services/products/products.service';
+import { ProductService } from '../services/product.service';
 import { first } from 'rxjs/operators';
-
-
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -30,9 +28,11 @@ export class HomePage {
   };
 
   bannerImages: any = [];
-  products: any = []; // just an empty array
+  products: any[];
+  public listOfproduct: any[];
+  public loadedListProduct: any[];
 
-  constructor(public productService : ProductsService,
+  constructor(private productService : ProductService,
               public routerOutlet : IonRouterOutlet,
               public modalCtrl : ModalController,
               public cart : CartService,
@@ -40,27 +40,36 @@ export class HomePage {
               private afs: AngularFirestore,
               private router: Router) {
                 this.bannerImages = this.productService.bannerImages;
-                this.products = this.productService.products;
+  }
+
+  ngOnInit() {
+    this.productService.getProducts().subscribe(products => {
+      this.products = products;
+    });
+
+    this.afs.collection(`items`).valueChanges().subscribe(listOfproduct=> {
+      this.listOfproduct = listOfproduct;
+      this.loadedListProduct = listOfproduct;
+    });
+
   }
 
   async addToCartModal(item) {
-    // console.log('item_id :>> ', item); // just to check what item is added
     let isAdded = this.cart.isAddedToCart(item.id);
 
     if(!isAdded) {
       this.cart.placeItem(item);
       const modal = await this.modalCtrl.create({
         component: AddToCartPage,
-        // cssClass: 'add-to-cart-modal',
+        cssClass: 'add-to-cart-modal',
         presentingElement: this.routerOutlet.nativeEl
       });
   
       await modal.present(); // to show pop up
 
     } else {
-      this.router.navigate(['']); // maybe redirect to cart?
+      this.router.navigate(['/cart']); // maybe redirect to cart?
     }
-    
   }
 
   toFilter(){
@@ -86,8 +95,6 @@ export class HomePage {
       }
     })
   }
-
-
   
   logout(){
     this.auth.signOut();

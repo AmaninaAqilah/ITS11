@@ -65,4 +65,15 @@ export class ProductService {
     });
   }
 
+  // FOR SLIDESHOW
+  bannerImages = [
+    {
+      imgurl: '../../assets/sports.jpg'
+    }, {
+      imgurl: '../../assets/discount.jpg'
+    }, {
+      imgurl: '../../assets/sneakers.webp'
+    }
+  ];
+
 }

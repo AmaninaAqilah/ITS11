@@ -19,7 +19,7 @@ export class AddToCartPage implements OnInit {
               public utility: UtilityService) {
                 this.minOrderQty = 1;
                 this.cart.item['cartQuantity'] =  this.minOrderQty;
-                this.availableQty  = this.cart.item['totalStock'] || 0;
+                this.availableQty  = this.cart.item['totalStock'] || 1; // once vendor ada quantity added, change back to 0
   }
 
   ngOnInit() {
@@ -59,7 +59,7 @@ export class AddToCartPage implements OnInit {
   getCartItemQty() {
     let index = this.cart.items.findIndex(value => value.id === this.cart.item.id);
     let qty = this.cart.item['cartQuantity'];
-    if ( index > -1 ) {
+    if(index > -1) {
       qty = this.cart.items[index]['cartQuantity'] + this.cart.item['cartQuantity'];
     }
     return qty;
@@ -71,7 +71,7 @@ export class AddToCartPage implements OnInit {
     let validOrder = this.availableQty > 0 
       && itemQty <= this.availableQty;
     
-    if ( validOrder ) {
+    if(validOrder) {
       this.cart.addToCart();
       this.modalCtrl.dismiss();
     } else {

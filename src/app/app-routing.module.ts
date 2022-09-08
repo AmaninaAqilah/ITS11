@@ -102,14 +102,18 @@ const routes: Routes = [
     loadChildren: () => import('./v-comment/v-comment.module').then( m => m.VCommentPageModule)
   },
   {
+    path: 'checkout',
+    loadChildren: () => import('./checkout/checkout.module').then( m => m.CheckoutPageModule)
+  },
+  {
+    path: 'wishlist',
+    loadChildren: () => import('./wishlist/wishlist.module').then( m => m.WishlistPageModule)
+  },
+  {
     path: '**',
     loadChildren: () => import('./page-not-found/page-not-found.module').then( m => m.PageNotFoundPageModule)
   },
 
-
-
-
-  
 ];
 
 @NgModule({
