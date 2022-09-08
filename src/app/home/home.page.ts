@@ -74,12 +74,8 @@ export class HomePage {
     }
   }
 
-  async addToWishlist(item) {
-    this.productService.getProducts().subscribe(products => {
-      this.products = products;
-    });
+  async addToWishlist() {
 
-    this.afs.collection(`items`).valueChanges().subscribe();
   }
 
   toFilter(){

@@ -38,7 +38,7 @@
         <ion-card class="ion-no-margin">
           
           <img [src]="product.imgurl || 'https://thumbs.dreamstime.com/b/lost-icon-missing-230247596.jpg'">
-          <ion-button color="clear" click="addToWishlist(product)">
+          <ion-button color="clear" click="addToWishlist()">
             <ion-icon color="danger" name="heart"></ion-icon>
           </ion-button>
           
@@ -73,29 +73,29 @@
 <!-- bottom nav bar -->
 <ion-tab-bar slot="bottom">
   <ion-tab-button tab="cart">
-    <ion-icon name="cart" [routerLink]="'/cart'"></ion-icon>
+    <ion-icon name="cart" [routerLink]="['/cart']"></ion-icon>
     <ion-label>My Cart</ion-label>
   </ion-tab-button>
 
   <ion-tab-button tab="upload">
-    <ion-icon name="heart" [routerLink]="'/wishlist'"></ion-icon>
+    <ion-icon name="heart" [routerLink]="['/wishlist']"></ion-icon>
     <ion-label>Wishlist</ion-label>
   </ion-tab-button>
 
 
   <ion-tab-button tab="home">
-    <ion-icon name="home" [routerLink]="'/home'"></ion-icon>
+    <ion-icon name="home" [routerLink]="['/home']"></ion-icon>
     <ion-label>Home</ion-label>
   </ion-tab-button>
 
   <ion-tab-button tab="payment">
-    <ion-icon name="card" [routerLink]="'/payment'"></ion-icon>
+    <ion-icon name="card" [routerLink]="['/payment']"></ion-icon>
     <ion-label>Payment</ion-label>
   </ion-tab-button>
 
   
   <ion-tab-button tab="about">
-    <ion-icon name="person-circle" [routerLink]="'/profile'"></ion-icon>
+    <ion-icon name="person-circle" [routerLink]="['/profile']"></ion-icon>
       <ion-label>Me</ion-label>
   </ion-tab-button>
 </ion-tab-bar>
