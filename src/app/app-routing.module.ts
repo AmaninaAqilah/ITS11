@@ -88,11 +88,45 @@ const routes: Routes = [
     loadChildren: () => import('./v-editprof/v-editprof.module').then( m => m.VEditprofPageModule), canActivate: [VAuthGuard]
   },
   {
+    path: 'cart',
+    loadChildren: () => import('./cart/cart.module').then( m => m.CartPageModule)
+  },
+  {
+    path: 'add-to-cart',
+    loadChildren: () => import('./add-to-cart/add-to-cart.module').then( m => m.AddToCartPageModule)
+  },
+  
+  {
+    path: 'setting',
+    loadChildren: () => import('./setting/setting.module').then( m => m.SettingPageModule)
+  },
+  
+  {
+    path: 'u-filter',
+    loadChildren: () => import('./u-filter/u-filter.module').then( m => m.UFilterPageModule)
+  },
+  {
+    path: 'v-comment',
+    loadChildren: () => import('./v-comment/v-comment.module').then( m => m.VCommentPageModule)
+  },
+  {
+    path: 'checkout',
+    loadChildren: () => import('./checkout/checkout.module').then( m => m.CheckoutPageModule)
+  },
+  {
+    path: 'wishlist',
+    loadChildren: () => import('./wishlist/wishlist.module').then( m => m.WishlistPageModule)
+  },
+  {
     path: '**',
     loadChildren: () => import('./page-not-found/page-not-found.module').then( m => m.PageNotFoundPageModule)
   },
+<<<<<<< HEAD
   
   
+=======
+
+>>>>>>> a25a4a2d13c1096c93c583da117ba634f8600bc9
 ];
 
 @NgModule({

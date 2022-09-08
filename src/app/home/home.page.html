@@ -1,13 +1,101 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      GOTHRIFTING
-    </ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Go Thrifting</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding" [fullscreen]="true">
+<ion-content >
 
-  <ion-button expand="block" shape="round" (click)="goToProfile()">Profile</ion-button>
-  <ion-button expand="block" shape="round" (click)="logout()">LOGOUT</ion-button>
+  <ion-searchbar  type="text" placeholder="Search" animated="true">
+    <ion-icon name="funnel" slot="end" (click)="toFilter()"></ion-icon>
+  </ion-searchbar>
+
+  <!-- slideshow -->
+  <ion-slides pager="true" [options]="options" *ngIf="bannerImages && bannerImages.length">
+
+    <ion-slide *ngFor="let image of bannerImages">  
+      <img class="banner-image" [src]="image?.imgurl || 'assets/imgs/divisions.svg'"/>
+    </ion-slide>
+
+  </ion-slides>
+
+  <ion-grid>
+
+    <ion-row class="ion-justify-content-between ion-padding-vertical">
+      <ion-col size="4">
+
+        <!-- add the category buttons here -->
+
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="6" size-lg="3" size-md="4" *ngFor='let product of products'>
+
+        <ion-card class="ion-no-margin">
+          
+          <img [src]="product.imgurl || 'https://thumbs.dreamstime.com/b/lost-icon-missing-230247596.jpg'">
+          <ion-button color="clear" click="addToWishlist()">
+            <ion-icon color="danger" name="heart"></ion-icon>
+          </ion-button>
+          
+          <ion-card-header>
+            <ion-card-subtitle>{{ product.itemCat }}</ion-card-subtitle>
+            <ion-card-title class="font-size-1">{{ product.itemName }}</ion-card-title>
+          </ion-card-header>
+
+          <ion-card-content>
+
+            <div>
+              {{ product.itemAmount | currency: 'BND' }}
+            </div>
+
+            <div>
+              <ion-button expand="full" color="danger" size="small" (click)="addToCartModal(product)">
+                {{ cart.isAddedToCart(product.id) ? 'Added' : 'Add to cart' }}
+              </ion-button>
+            </div>
+            
+          </ion-card-content>
+
+        </ion-card>
+
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+  
 </ion-content>
+
+<!-- bottom nav bar -->
+<ion-tab-bar slot="bottom">
+  <ion-tab-button tab="cart">
+    <ion-icon name="cart" [routerLink]="['/cart']"></ion-icon>
+    <ion-label>My Cart</ion-label>
+  </ion-tab-button>
+
+  <ion-tab-button tab="upload">
+    <ion-icon name="heart" [routerLink]="['/wishlist']"></ion-icon>
+    <ion-label>Wishlist</ion-label>
+  </ion-tab-button>
+
+
+  <ion-tab-button tab="home">
+    <ion-icon name="home" [routerLink]="['/home']"></ion-icon>
+    <ion-label>Home</ion-label>
+  </ion-tab-button>
+
+  <ion-tab-button tab="payment">
+    <ion-icon name="card" [routerLink]="['/payment']"></ion-icon>
+    <ion-label>Payment</ion-label>
+  </ion-tab-button>
+
+  
+  <ion-tab-button tab="about">
+    <ion-icon name="person-circle" [routerLink]="['/profile']"></ion-icon>
+      <ion-label>Me</ion-label>
+  </ion-tab-button>
+</ion-tab-bar>

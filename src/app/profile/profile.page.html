@@ -100,12 +100,12 @@
 
   <ion-tab-bar slot="bottom">
     <ion-tab-button tab="cart">
-      <ion-icon name="cart"></ion-icon>
+      <ion-icon name="cart" [routerLink]="'/cart'"></ion-icon>
       <ion-label>My Cart</ion-label>
     </ion-tab-button>
 
     <ion-tab-button tab="upload">
-      <ion-icon name="heart" [routerLink]="'/upload'"></ion-icon>
+      <ion-icon name="heart"></ion-icon>
       <ion-label>Wishlist</ion-label>
     </ion-tab-button>
 
@@ -115,9 +115,9 @@
       <ion-label>Home</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="payment">
-      <ion-icon name="card" [routerLink]="'/payment'"></ion-icon>
-      <ion-label>Payment</ion-label>
+    <ion-tab-button tab="category">
+      <ion-icon name="grid" [routerLink]="'/categories'"></ion-icon>
+      <ion-label>Category</ion-label>
     </ion-tab-button>
 
    

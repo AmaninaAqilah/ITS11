@@ -1,0 +1,142 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Filter</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="upperBox">
+    <h3>Price</h3>
+    <ion-list lines="none">
+  <ion-item>
+    <ion-range min="5" max="20" mode="ios" color="danger" [pin]="true"></ion-range>
+    <ion-label slot="end">$20</ion-label>
+  </ion-item>
+    </ion-list>
+  </div>
+
+
+
+<div class="upperBox">
+  <h3>Color</h3>
+  <ion-button fill="clear" size="small" color="tertiary">
+    <ion-icon slot="icon-only" name="ellipse"></ion-icon>
+  </ion-button>
+
+  <ion-button fill="clear" size="small" color="danger">
+    <ion-icon slot="icon-only" name="ellipse"></ion-icon>
+  </ion-button>
+
+  <ion-button fill="clear" size="small" color="medium">
+    <ion-icon slot="icon-only" name="ellipse"></ion-icon>
+  </ion-button>
+
+  <ion-button fill="clear" size="small" color="warning">
+    <ion-icon slot="icon-only" name="ellipse"></ion-icon>
+  </ion-button>
+
+  <ion-button fill="clear"  size="small" color="light">
+    <ion-icon slot="icon-only" name="ellipse"></ion-icon>
+  </ion-button>
+
+  <ion-button fill="clear" size="small" color="dark">
+    <ion-icon slot="icon-only" name="ellipse"></ion-icon>
+  </ion-button>
+</div>
+ 
+
+ <div class="upperBox">
+  <h3>Sizes</h3>
+  <ion-radio-group>
+    <ion-row>
+      <ion-col size="6">
+        <ion-item>
+        <ion-label>XS</ion-label>
+        <ion-radio mode="md" item-left value="xs"></ion-radio>
+      </ion-item>
+      </ion-col> 
+
+
+      <ion-col size="6">
+        <ion-item>
+        <ion-label>S</ion-label>
+        <ion-radio mode="md" item-left value="s"></ion-radio>
+      </ion-item>
+      </ion-col> 
+
+      <ion-col size="6">
+        <ion-item>
+        <ion-label>M</ion-label>
+        <ion-radio mode="md" item-left value="m"></ion-radio>
+      </ion-item>
+      </ion-col> 
+
+      <ion-col size="6">
+        <ion-item>
+        <ion-label>L</ion-label>
+        <ion-radio mode="md" item-left value="l"></ion-radio>
+      </ion-item>
+      </ion-col> 
+
+      <ion-col size="6">
+        <ion-item>
+        <ion-label>XL</ion-label>
+        <ion-radio mode="md" item-left value="xl"></ion-radio>
+      </ion-item>
+      </ion-col> 
+
+      <ion-col size="6">
+        <ion-item>
+        <ion-label>XXL</ion-label>
+        <ion-radio mode="md" item-left value="xxl"></ion-radio>
+      </ion-item>
+      </ion-col> 
+
+    </ion-row>
+  </ion-radio-group>
+  
+ </div>
+
+<div class="upperBox">
+  <h3>Brands</h3>
+  <ion-list>
+    <ion-radio-group>
+      <ion-item>
+        <ion-label>Adidas</ion-label>
+        <ion-radio mode="ios" item-left value="adidas"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Bershka</ion-label>
+        <ion-radio mode="ios" item-left value="bershka"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Converse</ion-label>
+        <ion-radio mode="ios" item-left value="converse"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Dazy</ion-label>
+        <ion-radio mode="ios" item-left value="dazy"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Other</ion-label>
+        <ion-radio mode="ios" item-left value="other"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
+</div>
+
+<div class="ion-text-center">
+  <ion-button color="dark" (click)="applyFilter()">Apply Filter</ion-button>
+</div>
+
+
+
+</ion-content>

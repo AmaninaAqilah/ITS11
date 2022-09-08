@@ -1,0 +1,27 @@
+ion-content{
+    --background:#e7e7e7;
+    // --background: url(../../assets/wallpaper.png) 0 0/100% 100% no-repeat;
+     .upperBox{
+        background-color: #fcfbf4;
+        box-shadow: rgba(0,0,0,0.15 ) 1.95px 1.95px 2.6px;
+        height:auto;
+        margin-bottom: 10%;
+        padding: 20px;
+
+        h3{
+            font-size:20px;
+            color: red;
+            
+        }
+     }
+  }
+  
+  ion-toolbar{
+    --background: #e7e7e7;
+  }
+  
+  ion-tab-bar{
+    --background: #d37a63;
+  }
+  
+  
