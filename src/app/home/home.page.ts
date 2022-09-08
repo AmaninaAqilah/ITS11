@@ -67,9 +67,19 @@ export class HomePage {
   
       await modal.present(); // to show pop up
 
-    } else {
+    }
+    
+    else {
       this.router.navigate(['/cart']); // maybe redirect to cart?
     }
+  }
+
+  async addToWishlist(item) {
+    this.productService.getProducts().subscribe(products => {
+      this.products = products;
+    });
+
+    this.afs.collection(`items`).valueChanges().subscribe();
   }
 
   toFilter(){

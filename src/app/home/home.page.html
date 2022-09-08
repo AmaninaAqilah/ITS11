@@ -38,6 +38,9 @@
         <ion-card class="ion-no-margin">
           
           <img [src]="product.imgurl || 'https://thumbs.dreamstime.com/b/lost-icon-missing-230247596.jpg'">
+          <ion-button color="clear" click="addToWishlist(product)">
+            <ion-icon color="danger" name="heart"></ion-icon>
+          </ion-button>
           
           <ion-card-header>
             <ion-card-subtitle>{{ product.itemCat }}</ion-card-subtitle>

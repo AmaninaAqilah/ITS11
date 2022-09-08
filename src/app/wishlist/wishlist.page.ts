@@ -10,6 +10,7 @@ export class WishlistPage implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    
   }
 
 }
