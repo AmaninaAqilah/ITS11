@@ -33,14 +33,14 @@
     </ion-row>
 
     <ion-row>
-      <ion-col size="6" size-lg="3" size-md="4" *ngFor='let product of products'>
+      <ion-col size="6" size-lg="3" size-md="4" *ngFor='let product of productList | async' routerLink='/product-detail/{{product.id}}'>
 
         <ion-card class="ion-no-margin">
           
           <img [src]="product.imageUrl">
-          <ion-button color="clear" click="addToWishlist()">
+          <!-- <ion-button color="clear" click="addToWishlist()">
             <ion-icon color="danger" name="heart"></ion-icon>
-          </ion-button>
+          </ion-button> -->
           
           <ion-card-header>
             <ion-card-subtitle>{{ product.itemCat }}</ion-card-subtitle>
@@ -53,11 +53,11 @@
               {{ product.itemAmount | currency: 'BND' }}
             </div>
 
-            <div>
+            <!-- <div>
               <ion-button expand="full" color="danger" size="small" (click)="addToCartModal(product)">
                 {{ cart.isAddedToCart(product.id) ? 'Added' : 'Add to cart' }}
               </ion-button>
-            </div>
+            </div> -->
             
           </ion-card-content>
 
@@ -89,7 +89,7 @@
   </ion-tab-button>
 
   <ion-tab-button tab="category">
-    <ion-icon name="grid" [routerLink]="'/categories'"></ion-icon>
+    <ion-icon name="grid" [routerLink]="'/explore'"></ion-icon>
     <ion-label>Category</ion-label>
   </ion-tab-button>
 

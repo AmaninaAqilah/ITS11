@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>{{ product?.itemName }}</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <img src="{{ product?.imageUrl }}">
+
+  <ion-card class="ion-padding" >
+
+  {{ product?.itemName }}
+  <h3>Price: <b>${{ product?.itemAmount }}</b></h3><br>
+
+  <p>Description:</p>
+  <p><i>{{ product?.itemDescription }}</i></p><br>
+
+  <p>Item left: {{ product?.itemQuantity }}</p>
+
+  </ion-card>
+
+</ion-content>
+
+<ion-tab-bar slot="bottom">
+
+  <ion-button color="dark">
+    <ion-icon color="danger" name="heart"></ion-icon>
+  </ion-button>
+
+  <ion-button color="dark" class="cart">
+    <ion-icon color="danger" name="cart"></ion-icon>
+    Add to Cart
+  </ion-button>
+  
+</ion-tab-bar>

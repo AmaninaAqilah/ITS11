@@ -29,12 +29,12 @@ const routes: Routes = [
     loadChildren: () => import('./vendors/vendors.module').then( m => m.VendorsPageModule)
   },
   {
-    path: 'chat',
-    loadChildren: () => import('./chat/chat.module').then( m => m.ChatPageModule)
+    path: 'live-chat/:from',
+    loadChildren: () => import('./live-chat/live-chat.module').then( m => m.LiveChatPageModule)
   },
   {
-    path: 'live-chat',
-    loadChildren: () => import('./live-chat/live-chat.module').then( m => m.LiveChatPageModule)
+    path: 'channels',
+    loadChildren: () => import('./channels/channels.module').then( m => m.ChannelsPageModule)
   }
 ];
 

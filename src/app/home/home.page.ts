@@ -1,20 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
 import { IonRouterOutlet, ModalController } from '@ionic/angular';
-import { AddToCartPage } from '../add-to-cart/add-to-cart.page';
+//import { AddToCartPage } from '../add-to-cart/add-to-cart.page';
 import { AuthService } from '../services/auth.service';
 import { CartService } from '../services/cart/cart.service';
 import { ProductService } from '../services/product.service';
 import { first } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { HomeService } from '../services/home.service';
+import { Product } from '../models/product.model';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit {
 
   public prodList: any;
+  public productList: Observable<Product[]>;
 
   // FOR THE SLIDESHOW
   options = {
@@ -38,40 +42,13 @@ export class HomePage {
               public cart : CartService,
               private auth: AuthService,
               private afs: AngularFirestore,
-              private router: Router) {
+              private router: Router,
+              private homeService: HomeService) {
                 this.bannerImages = this.productService.bannerImages;
   }
 
   ngOnInit() {
-    this.productService.getProducts().subscribe(products => {
-      this.products = products;
-    });
-
-    this.afs.collection(`items`).valueChanges().subscribe(listOfproduct=> {
-      this.listOfproduct = listOfproduct;
-      this.loadedListProduct = listOfproduct;
-    });
-
-  }
-
-  async addToCartModal(item) {
-    let isAdded = this.cart.isAddedToCart(item.id);
-
-    if(!isAdded) {
-      this.cart.placeItem(item);
-      const modal = await this.modalCtrl.create({
-        component: AddToCartPage,
-        cssClass: 'add-to-cart-modal',
-        presentingElement: this.routerOutlet.nativeEl
-      });
-  
-      await modal.present(); // to show pop up
-
-    }
-    
-    else {
-      this.router.navigate(['/cart']); // maybe redirect to cart?
-    }
+    this.productList = this.homeService.getProdList(); // to print the items into the home page
   }
 
   async addToWishlist() {

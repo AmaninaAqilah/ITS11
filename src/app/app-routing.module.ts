@@ -7,17 +7,7 @@ import { VAuthGuard } from './guards/v-auth.guard';
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),
-  },
-  {
-    path: 'vendor',
-    loadChildren: () => import('./vendor/vendor.module').then( m => m.VendorPageModule),
-    canActivate: [VAuthGuard]
-  },
-  {
-    path: 'admin',
-    loadChildren: () => import('./admin/admin.module').then( m => m.AdminPageModule),
-    canActivate: [AdminGuard]
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
   {
     path: '',
@@ -25,32 +15,46 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'vendor',
+    loadChildren: () => import('./vendor/vendor.module').then( m => m.VendorPageModule),
+    canActivate: [VAuthGuard]
+  },
+  {
     path: 'about',
     loadChildren: () => import('./about/about.module').then( m => m.AboutPageModule)
   },
   {
-    path: 'index',
-    loadChildren: () => import('./index/index.module').then( m => m.IndexPageModule)
-  },
-  {
-    path: 'register',
-    loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
-  },
-  {
-    path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+    path: 'admin',
+    loadChildren: () => import('./admin/admin.module').then( m => m.AdminPageModule),
+    canActivate: [AdminGuard]
   },
   {
     path: 'a-login',
-    loadChildren: () => import('./admin-login/admin-login.module').then( m => m.AdminLoginPageModule)
+    loadChildren: () => import('./auth/admin-login/admin-login.module').then( m => m.AdminLoginPageModule)
   },
   {
     path: 'a-register',
-    loadChildren: () => import('./admin-register/admin-register.module').then( m => m.AdminRegisterPageModule)
+    loadChildren: () => import('./auth/admin-register/admin-register.module').then( m => m.AdminRegisterPageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./auth/user-login/user-login.module').then( m => m.UserLoginPageModule)
+  },
+  {
+    path: 'register',
+    loadChildren: () => import('./auth/user-register/user-register.module').then( m => m.UserRegisterPageModule)
+  },
+  {
+    path: 'vlog',
+    loadChildren: () => import('./auth/vendor-login/vendor-login.module').then( m => m.VendorLoginPageModule)
+  },
+  {
+    path: 'vreg',
+    loadChildren: () => import('./auth/vendor-register/vendor-register.module').then( m => m.VendorRegisterPageModule)
   },
   {
     path: 'forgot-password',
-    loadChildren: () => import('./forgot-password/forgot-password.module').then( m => m.ForgotPasswordPageModule)
+    loadChildren: () => import('./auth/forgot-password/forgot-password.module').then( m => m.ForgotPasswordPageModule)
   },
   {
     path: 'profile',
@@ -58,26 +62,16 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'profile/edit',
-    loadChildren: () => import('./profile-edit/profile-edit.module').then( m => m.ProfileEditPageModule),
-    canActivate: [AuthGuard]
+    path: 'landing',
+    loadChildren: () => import('./landing/landing.module').then( m => m.LandingPageModule)
   },
   {
-    path: 'chat',
-    loadChildren: () => import('./chat/chat.module').then( m => m.ChatPageModule),
-    canActivate: [AuthGuard]
+    path: 'setting',
+    loadChildren: () => import('./setting/setting.module').then( m => m.SettingPageModule)
   },
   {
     path: 'guest',
     loadChildren: () => import('./guest/guest.module').then( m => m.GuestPageModule)
-  },
-  {
-    path: 'vreg',
-    loadChildren: () => import('./v-register/v-register.module').then( m => m.VRegisterPageModule)
-  },
-  {
-    path: 'vlog',
-    loadChildren: () => import('./v-login/v-login.module').then( m => m.VLoginPageModule)
   },
   {
     path: 'vprof',
@@ -88,55 +82,30 @@ const routes: Routes = [
     loadChildren: () => import('./v-editprof/v-editprof.module').then( m => m.VEditprofPageModule), canActivate: [VAuthGuard]
   },
   {
-    path: 'cart',
-    loadChildren: () => import('./cart/cart.module').then( m => m.CartPageModule),
+    path: 'index',
+    loadChildren: () => import('./index/index.module').then( m => m.IndexPageModule)
+  },
+  {
+    path: 'u-search',
+    loadChildren: () => import('./u-search/u-search.module').then( m => m.USearchPageModule)
+  },
+  {
+    path: 'explore',
+    loadChildren: () => import('./explore/explore.module').then( m => m.ExplorePageModule)
+  },
+  {
+    path: 'payment',
+    loadChildren: () => import('./payment/payment.module').then( m => m.PaymentPageModule)
+  },
+  {
+    path: 'chat',
+    loadChildren: () => import('./chat/chat.module').then( m => m.ChatPageModule),
     canActivate: [AuthGuard]
   },
   {
-    path: 'u-checkout',
-    loadChildren: () => import('./u-checkout/u-checkout.module').then( m => m.UCheckoutPageModule),
-    canActivate: [AuthGuard]
+    path: 'product-detail/:id',
+    loadChildren: () => import('./pages/product-detail/product-detail.module').then( m => m.ProductDetailPageModule)
   },
-  {
-    path: 'landing',
-    loadChildren: () => import('./landing/landing.module').then( m => m.LandingPageModule)
-  },
-  {
-    path: 'add-to-cart',
-    loadChildren: () => import('./add-to-cart/add-to-cart.module').then( m => m.AddToCartPageModule),
-    canActivate: [AuthGuard]
-  },
-  
-  {
-    path: 'setting',
-    loadChildren: () => import('./setting/setting.module').then( m => m.SettingPageModule)
-  },
-  
-  {
-    path: 'u-filter',
-    loadChildren: () => import('./u-filter/u-filter.module').then( m => m.UFilterPageModule)
-  },
-  {
-    path: 'v-comment',
-    loadChildren: () => import('./v-comment/v-comment.module').then( m => m.VCommentPageModule),
-    canActivate: [AuthGuard]
-  },
-  {
-    path: 'checkout',
-    loadChildren: () => import('./checkout/checkout.module').then( m => m.CheckoutPageModule),
-    canActivate: [AuthGuard]
-  },
-  {
-    path: 'wishlist',
-    loadChildren: () => import('./wishlist/wishlist.module').then( m => m.WishlistPageModule),
-    canActivate: [AuthGuard]
-  },
-  {
-    path: '**',
-    loadChildren: () => import('./page-not-found/page-not-found.module').then( m => m.PageNotFoundPageModule)
-  },
-  
-  
 ];
 
 @NgModule({

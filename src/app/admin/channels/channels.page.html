@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button>
+      <ion-back-button defaultHref="/admin"></ion-back-button> <!-- go back to admin page -->
+    </ion-button>
+    </ion-buttons>
+    <ion-title>Conversations</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+ 
+  <div class="eachChannel" *ngFor="let chat of chats | async" (click)="message(chat.from)">
+    <div class="channelList">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <div id="topProfile">
+              <ion-text  class="channel"><b>{{ chat.fromName}}</b></ion-text>
+            </div>
+          </ion-col>
+          <ion-text class="time">{{ chat.createdAt?.toMillis() | date:'short' }}</ion-text>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+
+    <!-- <ion-content class="padding">
+    <ion-item *ngFor="let chat of chats | async" (click)="message(chat.fromName)">
+      <ion-label>
+        <ion-text>From  <b>{{ chat.fromName}}</b></ion-text>
+      </ion-label>
+    </ion-item>
+  </ion-content> -->
+  
+</ion-content>

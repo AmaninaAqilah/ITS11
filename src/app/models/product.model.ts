@@ -6,4 +6,5 @@ export interface Product {
     itemCat: string;
     itemGen: string;
     itemQuantity: number;
+    imageUrl: string;
 }

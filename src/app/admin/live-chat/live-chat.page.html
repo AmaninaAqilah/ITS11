@@ -2,7 +2,7 @@
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-button>
-      <ion-back-button defaultHref="/admin"></ion-back-button> <!-- go back to admin page -->
+      <ion-back-button defaultHref="/admin/channels"></ion-back-button> <!-- go back to admin page -->
     </ion-button>
     </ion-buttons>
     <ion-title>Customer Service</ion-title>
@@ -30,7 +30,7 @@
   <ion-toolbar color="light">
     <ion-row class="ion-align-items-center">
       <ion-col size="10">
-        <ion-textarea autoGrow="true" class="message-input" rows="1" maxLength="500" [(ngModel)]="newMsg" >
+        <ion-textarea autoGrow="true" class="message-input" rows="1" maxLength="500" [(ngModel)]="newMsg" placeholder="Type a message" >
         </ion-textarea>
       </ion-col>
       <ion-col size="2">

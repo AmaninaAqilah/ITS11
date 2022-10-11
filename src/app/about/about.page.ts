@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-about',
@@ -8,12 +7,7 @@ import { Router } from '@angular/router';
 })
 export class AboutPage implements OnInit {
 
-  constructor(private router: Router) { }
-
-  // to navigate back to home page
-  // backHome(){
-  //   this.router.navigateByUrl('/home');
-  // }
+  constructor() { }
 
   ngOnInit() {
   }

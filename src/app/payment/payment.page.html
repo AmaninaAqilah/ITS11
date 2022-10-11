@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/cart"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Checkout</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+        <div class="ion-text-center">
+            <h2>Total:</h2>
+          </div>
+      
+        <ion-row>
+          <ion-col class="ion-text-center">
+            <div id="myPaypalButtons" ></div>
+          </ion-col>
+        </ion-row>
+ </ion-content>
+
+<ion-tab-bar slot="bottom">
+  <ion-tab-button tab="cart">
+    <ion-icon name="cart"></ion-icon>
+    <ion-label>My Cart</ion-label>
+  </ion-tab-button>
+
+  <ion-tab-button tab="upload">
+    <ion-icon name="heart" [routerLink]="'/wishlist'"></ion-icon>
+    <ion-label>Wishlist</ion-label>
+  </ion-tab-button>
+
+
+  <ion-tab-button tab="home">
+    <ion-icon name="home" [routerLink]="'/home'"></ion-icon>
+    <ion-label>Home</ion-label>
+  </ion-tab-button>
+
+  <ion-tab-button tab="payment">
+    <ion-icon name="card" [routerLink]="'/payment'"></ion-icon>
+    <ion-label>Payment</ion-label>
+  </ion-tab-button>
+
+ 
+  <ion-tab-button tab="about">
+    <ion-icon name="person-circle" [routerLink]="'/profile'"></ion-icon>
+      <ion-label>Me</ion-label>
+  </ion-tab-button>
+</ion-tab-bar>

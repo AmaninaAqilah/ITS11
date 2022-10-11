@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonContent } from '@ionic/angular';
 import { Observable } from 'rxjs';
-import { Router } from '@angular/router';
-import { ChatService } from 'src/app/services/chat.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ChatService, Message } from 'src/app/services/chat.service';
 
 @Component({
   selector: 'app-live-chat',
@@ -15,11 +15,14 @@ export class LiveChatPage implements OnInit {
 
   chats: Observable<any[]>;
   newMsg = '';
+  fromName: string 
 
-  constructor(private chatService: ChatService, private router: Router) { }
+  constructor(private chatService: ChatService, private router: Router,
+    private route: ActivatedRoute,) { }
 
   ngOnInit() {
     this.chats = this.chatService.getChatMsg();
+    this.fromName = this.route.snapshot.params['fromName'];
   }
 
   sendMsg(){
